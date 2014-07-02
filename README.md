@@ -16,8 +16,7 @@ All credit goes to MDark for all the hard work to make this mod available.
 (Will update the instructions and try to make them clearer)
 <br><br>
 How to Update:<br><br>
-
-	To update from the last version, simply copy the next folders and files from the pack to your gamedirectory and overwrite the old ones.<br>
+To update from the last version, simply copy the next folders and files from the pack to your gamedirectory and overwrite the old ones.<br>
 <br>
 	@dayz_1.origins.tavi<br>
 	installP<br>
