@@ -14,3 +14,17 @@ All credit goes to MDark for all the hard work to make this mod available.
 9) Double-click the originsserver.cmd to start the server.
 <br><br>
 (Will update the instructions and try to make them clearer)
+<br><br>
+How to Update:<br><br>
+
+	To update from the last version, simply copy the next folders and files from the pack to your gamedirectory and overwrite the old ones.<br>
+<br>
+	@dayz_1.origins.tavi<br>
+	installP<br>
+	MPMissions	(reinsert youre PlayerID for admintools)<br>
+	originsclient.cmd<br>
+	originsserver.cmd<br>
+	update.cmd<br>
+	 <br>
+	run update.cmd <br>
+	run update.sql on your origins Database<br>
