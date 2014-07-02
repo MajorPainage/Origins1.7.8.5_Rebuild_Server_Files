@@ -21,7 +21,6 @@ To update from the last version, simply copy the next folders and files from the
 	@dayz_1.origins.tavi<br>
 	installP<br>
 	MPMissions	(reinsert youre PlayerID for admintools)<br>
-	originsclient.cmd<br>
 	originsserver.cmd<br>
 	update.cmd<br>
 	 <br>
