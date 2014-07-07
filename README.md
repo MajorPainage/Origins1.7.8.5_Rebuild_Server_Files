@@ -26,3 +26,34 @@ To update from the last version, simply copy the next folders and files from the
 	 <br>
 	run update.cmd <br>
 	run update.sql on your origins Database<br>
+<br><br>
+<big><b><u>Optional Adjustments</u></b></big>
+<br><br>
+<b><u>Teleport and Vehicle Eject Fix</u></b>
+<br><br>
+An anti cheat detection is built in to prevent hacker from teleporting, but it also ejects you from vehicles like planes if your using the the admin menu and enabling the vehicle boost.
+<br><br>
+Edit: Origins\MPMissions\dayz_1.origins.tavi\Debug\player_spawn_2.sqf<br>
+Look at the bottom of the file for:<br>
+<br><br>
+<pre>_myPos = player getVariable["lastPos",[]];
+if (count _myPos > 0) then {
+player setVariable["lastPos",_mylastPos, true];
+player setVariable["lastPos",[]];
+};
+_lastPos = getPosATL player;
+if (player == vehicle player) then {
+if (_mylastPos distance _lastPos > 200) then {
+if (alive player) then {
+player setPosATL _mylastPos;
+};
+};
+} else {
+if (_mylastPos distance _lastPos > 800) then {
+if (alive player) then {
+player setPosATL _mylastPos;
+};</pre>
+<br><br>
+Change 200 to 20000 and 800 to 80000.<br>
+Because it's a big map, something like 32000 across, I just added 2 zeros to the end of the number.<br>
+Later you can remove the 2 zeros to enable the anti cheat teleport.
