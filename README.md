@@ -1,8 +1,14 @@
-How to install server files:
+Requirements:
 ===================================
 
-All credit goes to MDark for all the hard work to make this mod available.
-<br><br>
+- Download Arma2 and Operation Arrowhead on Steam.<br>
+- Copy ALL Arma2 files and folder and paste them in the Operation Arrowhead folder.<br>
+<br>
+
+
+How To Install Origin Server Files:
+===================================
+
 1) Download DayZ_Origins Version 1.7.8.5 and install it in your OA folder.<br>
 2) Download these github files.<br>
 3) Extract the files into your OA folder.<br>
@@ -26,10 +32,11 @@ To update from the last version, simply copy the next folders and files from the
 	 <br>
 	run update.cmd <br>
 	run update.sql on your origins Database<br>
-<br><br>
+<br>
+
+
 Optional Adjustments
 ============================
-<br><br>
 <b>Teleport and Vehicle Eject Fix</b>
 <br><br>
 An anti cheat detection is built in to prevent hacker from teleporting, but it also ejects you from vehicles like planes if your using the the admin menu and enabling the vehicle boost.
@@ -55,4 +62,10 @@ player setPosATL _mylastPos;
 };</pre>
 Change 200 to 20000 and 800 to 80000.<br>
 Because it's a big map, something like 32000 across, I just added 2 zeros to the end of the number.<br>
-Later you can remove the 2 zeros to enable the anti cheat teleport.
+Later you can remove the 2 zeros to enable the anti cheat teleport.<br>
+<br>
+
+
+Credits
+============================
+All credit goes to MDark for all the hard work to make this mod available.
