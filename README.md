@@ -16,8 +16,9 @@ How To Install Origin Server Files:
 - Also execute the db sql updates in the same folder.<br>
 - Edit the config.cfg and hive.ini in the folder "dayz_1.origins.tavi".<br>
 - Edit originsserver.cmd and change the path to your MySQL Server (it must be in the hidden path "Program Files")<br>
-- Double-click the originsserver.cmd to start the server.
+- Double-click the originsserver.cmd to start the server.<br>
 <br>
+
 <b>How to Update:</b>
 - To update from the last version, simply copy the next folders and files from the pack to your gamedirectory and overwrite the old ones.<br>
 <br>
