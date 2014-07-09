@@ -1,3 +1,4 @@
+
 _pathtotools = "admintools\tools\";
 _pathtoweapon = "admintools\weaponkits\";
 _pathtovehicles = "admintools\vehicles\";
@@ -242,12 +243,12 @@ VehicleTempMenu=
 [
 ["",true],
 	["Spawn Temporary Vehicle -- AIR",[],"",-5,[["expression",""]],"1","0"],
-	["MH-6J Little Bird",[],"",-5,[["expression",'["MH6J_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["UH-60M Black Hawk",[],"",-5,[["expression",'["UH60M_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["CH-47F Chinook",[],"",-5,[["expression",'["CH_47F_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["MV-22 Osprey",[],"",-5,[["expression",'["MV22"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["A-10",[],"",-5,[["expression",'["A10"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["C-130J Super Hercules",[],"",-5,[["expression",'["C130J"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["UH1H_Ori",[],"",-5,[["expression",'["UH1H_Ori"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["AH6X_Ori",[],"",-5,[["expression",'["AH6X_Ori"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["Mi17_Ori",[],"",-5,[["expression",'["Mi17_Ori"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["ori_pragaCopter_green",[],"",-5,[["expression",'["ori_pragaCopter_green"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["ATV_US_EP1",[],"",-5,[["expression",'["ATV_US_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["Ikarus",[],"",-5,[["expression",'["Ikarus"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
 	["",[],"",-5,[["expression",""]],"1","0"],
 		["Next page",[],"#USER:VehicleTempMenu2",-5,[["expression",""]],"1","1"],
 			["Main Menu", [20], "#USER:epochmenustart", -5, [["expression", ""]], "1", "1"]
@@ -256,16 +257,15 @@ VehicleTempMenu2 =
 [
 ["",true],
 	["Spawn Temporary Vehicle -- WHEELED",[],"",-5,[["expression",""]],"1","0"],
-	["SUV (Camo)",[],"",-5,[["expression",'["SUV_Camo"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["Armored SUV",[],"",-5,[["expression",'["ArmoredSUV_PMC_DZE"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["MTVR (Fuel)",[],"",-5,[["expression",'["MTVR_Refuel_DES_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["Ural Truck",[],"",-5,[["expression",'["Ural_TK_CIV_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["Ikarus Bus",[],"",-5,[["expression",'["Ikarus_TK_CIV_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["HMMWV (Ambulance)",[],"",-5,[["expression",'["HMMWV_Ambulance"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["Military Offroad Special",[],"",-5,[["expression",'["LandRover_Special_CZ_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["Mountain Bike",[],"",-5,[["expression",'["MMT_USMC"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["Motorcycle",[],"",-5,[["expression",'["M1030"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["ATV",[],"",-5,[["expression",'["ATV_US_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["S1203_TK_CIV_EP1",[],"",-5,[["expression",'["S1203_TK_CIV_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["TT650_TK_CIV_EP1",[],"",-5,[["expression",'["TT650_TK_CIV_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["UAZ_RU",[],"",-5,[["expression",'["UAZ_RU"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["V3S_Civ",[],"",-5,[["expression",'["V3S_Civ"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["Mi17_Civilian_Ori",[],"",-5,[["expression",'["Mi17_Civilian_Ori"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["MMT_Civ",[],"",-5,[["expression",'["MMT_Civ"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["SUV_Special",[],"",-5,[["expression",'["SUV_Special"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["TT650_Ins",[],"",-5,[["expression",'["TT650_Ins"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["UralCivil",[],"",-5,[["expression",'["UralCivil"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
 	["", [], "", -5, [["expression", ""]], "1", "0"],
 		["Next page", [], "#USER:VehicleTempMenu3", -5, [["expression", ""]], "1", "1"],
 			["Main Menu", [20], "#USER:epochmenustart", -5, [["expression", ""]], "1", "1"]
@@ -274,10 +274,10 @@ VehicleTempMenu3 =
 [
 ["",true],
 	["Spawn Temporary Vehicle -- TRACKED",[],"",-5,[["expression",""]],"1","0"],
-	["M1A1",[],"",-5,[["expression",'["M1A1_US_DES_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["M1A2 TUSK",[],"",-5,[["expression",'["M1A2_US_TUSK_MG_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["M270 MLRS",[],"",-5,[["expression",'["MLRS_DES_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
-	["T-34",[],"",-5,[["expression",'["T34_TK_EP1"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["UAZ_MG_Ori",[],"",-5,[["expression",'["UAZ_MG_Ori"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["Zodiac_Ori",[],"",-5,[["expression",'["Zodiac_Ori"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["ori_p85_originsmod_cucv_pickup",[],"",-5,[["expression",'["ori_p85_originsmod_cucv_pickup"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
+	["FlyingFortress",[],"",-5,[["expression",'["ORI_gunship_helicopter"] execVM "admintools\tools\addtempvehicle.sqf"']],"1","1"],
 	["", [], "", -5, [["expression", ""]], "1", "0"],
 		["Next page", [], "#USER:VehicleTempMenu4", -5, [["expression", ""]], "1", "1"],
 			["Main Menu", [20], "#USER:epochmenustart", -5, [["expression", ""]], "1", "1"]

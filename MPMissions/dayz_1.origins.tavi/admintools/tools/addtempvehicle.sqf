@@ -1,4 +1,4 @@
-private ["_veh","_location","_isOk","_vehtospawn","_part_in","_qty_in","_qty","_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_dir","_removed","_keyColor","_keyNumber","_keySelected","_isKeyOK","_config","_textPartIn","_textPartOut"];
+private ["_veh","_location","_isOk","_vehtospawn","_part_in","_qty_in","_qty","_obj","_started","_finished","_animState","_isMedic","_dir","_removed","_keyColor","_keyNumber","_keySelected","_isKeyOK","_config","_textPartIn","_textPartOut"];
  
  _vehtospawn = _this select 0; 
  _dist = 10;

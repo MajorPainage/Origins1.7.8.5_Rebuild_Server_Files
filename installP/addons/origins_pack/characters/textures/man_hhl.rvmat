@@ -1,0 +1,92 @@
+ambient[] = {0.826157, 0.631726, 0.510157, 1.0};
+diffuse[] = {1.0, 0.946431, 0.868, 1.0};
+forcedDiffuse[] = {0.276, 0.202431, 0.179686, 0.0};
+emmisive[] = {0.0, 0.0, 0.0, 1.0};
+specular[] = {0.984, 0.753529, 0.644, 1.0};
+specularPower = 24.0;
+PixelShaderID = "Super";
+VertexShaderID = "Super";
+
+class Stage1 {
+	texture = "origins_pack\characters\textures\hhl_nohq.paa";
+	uvSource = "tex";
+	
+	class uvTransform {
+		aside[] = {1.0, 0.0, 0.0};
+		up[] = {0.0, 1.0, 0.0};
+		dir[] = {0.0, 0.0, 0.0};
+		pos[] = {0.0, 0.0, 0.0};
+	};
+};
+
+class Stage2 {
+	texture = "#(argb,8,8,3)color(0.5,0.5,0.5,0.5,DT)";
+	uvSource = "tex";
+	
+	class uvTransform {
+		aside[] = {1.0, 0.0, 0.0};
+		up[] = {0.0, 1.0, 0.0};
+		dir[] = {0.0, 0.0, 0.0};
+		pos[] = {0.0, 0.0, 0.0};
+	};
+};
+
+class Stage3 {
+	texture = "#(argb,8,8,3)color(1,1,1,0,MC)";
+	uvSource = "tex";
+	
+	class uvTransform {
+		aside[] = {1.0, 0.0, 0.0};
+		up[] = {0.0, 1.0, 0.0};
+		dir[] = {0.0, 0.0, 0.0};
+		pos[] = {0.0, 0.0, 0.0};
+	};
+};
+
+class Stage4 {
+	texture = "#(rgb,8,8,3)color(1,1,1,1,AC)";
+	uvSource = "tex";
+	
+	class uvTransform {
+		aside[] = {1.0, 0.0, 0.0};
+		up[] = {0.0, 1.0, 0.0};
+		dir[] = {0.0, 0.0, 0.0};
+		pos[] = {0.0, 0.0, 0.0};
+	};
+};
+
+class Stage5 {
+	texture = "origins_pack\characters\textures\hhl_smdi.paa";
+	uvSource = "tex";
+	
+	class uvTransform {
+		aside[] = {1.0, 0.0, 0.0};
+		up[] = {0.0, 1.0, 0.0};
+		dir[] = {0.0, 0.0, 0.0};
+		pos[] = {0.0, 0.0, 0.0};
+	};
+};
+
+class Stage6 {
+	texture = "#(ai,32,128,1)fresnel(0.43,1.57)";
+	uvSource = "tex";
+	
+	class uvTransform {
+		aside[] = {1.0, 0.0, 0.0};
+		up[] = {0.0, 1.0, 0.0};
+		dir[] = {0.0, 0.0, 0.0};
+		pos[] = {0.0, 0.0, 0.0};
+	};
+};
+
+class Stage7 {
+	texture = "origins_pack\characters\textures\env_land_co.paa";
+	uvSource = "tex";
+	
+	class uvTransform {
+		aside[] = {1.0, 0.0, 0.0};
+		up[] = {0.0, 1.0, 0.0};
+		dir[] = {0.0, 0.0, 0.0};
+		pos[] = {0.0, 0.0, 0.0};
+	};
+};

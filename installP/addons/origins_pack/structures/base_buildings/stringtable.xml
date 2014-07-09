@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project name="base_buildings">
+  <Package name="origins_pack">
+			<Key ID="STR_OPEN_DOOR_FRONT">
+				<Original>Open Front Door</Original>
+				<English>Open Front Door</English>
+				<German>Öffne Vordertür</German>
+				<Russian>Открыть передние двери</Russian>
+			</Key>
+			<Key ID="STR_CLOSE_DOOR_FRONT">
+				<Original>Close Front Door</Original>
+				<English>Close Front Door</English>
+				<German>Schließe Vordertür</German>
+				<Russian>Закрыть передние двери</Russian>
+			</Key>
+			<Key ID="STR_OPEN_DOOR_SIDE">
+				<Original>Open Side Door</Original>
+				<English>Open Side Door</English>
+				<German>Öffne Seitentür</German>
+				<Russian>Открыть боковые двери</Russian>
+			</Key>
+			<Key ID="STR_CLOSE_DOOR_SIDE">
+				<Original>Close Side Door</Original>
+				<English>Close Side Door</English>
+				<German>Schließe Seitentür</German>
+				<Russian>Закрыть боковые двери</Russian>
+			</Key>
+			<Key ID="STR_OPEN_DOOR_GARAGE">
+				<Original>Open Garage</Original>
+				<English>Open Garage</English>
+				<German>Öffne Garage</German>
+				<Russian>Открыть гараж</Russian>
+			</Key>
+			<Key ID="STR_CLOSE_DOOR_GARAGE">
+				<Original>Close Garage</Original>
+				<English>Close Garage</English>
+				<German>Schließe Garage</German>
+				<Russian>Закрыть гараж</Russian>
+			</Key>
+			<Key ID="STR_OPEN_DOOR_SLIDER">
+				<Original>Open Slider</Original>
+				<English>Open Slider</English>
+				<German>Öffne Türspion</German>
+				<Russian>Открыть ползунок</Russian>
+			</Key>
+			<Key ID="STR_CLOSE_DOOR_SLIDER">
+				<Original>Close Slider</Original>
+				<English>Close Slider</English>
+				<German>Schließe Türspion</German>
+				<Russian>Закрыть ползунок</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_UPGRADE_1">
+				<Original>Upgrade Building to Level 1</Original>
+				<English>Upgrade Building to Level 1</English>
+				<German>Gebäude auf Stufe 1 aufrüsten</German>
+				<Russian>Улучшить здание на 1 уровень</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_UPGRADE_2">
+				<Original>Upgrade Building to Level 2</Original>
+				<English>Upgrade Building to Level 2</English>
+				<German>Gebäude auf Stufe 2 aufrüsten</German>
+				<Russian>Улучшить здание на 2 уровень</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_UPGRADE_3">
+				<Original>Upgrade Building to Level 3</Original>
+				<English>Upgrade Building to Level 3</English>
+				<German>Gebäude auf Stufe 3 aufrüsten</German>
+				<Russian>Улучшить здание на 3 уровень</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_FOUNDATION">
+				<Original>Build Foundation</Original>
+				<English>Build Foundation</English>
+				<German>Baue Fundament</German>
+				<Russian>Построить фундамент</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_WT">
+				<Original>Watchtower</Original>
+				<English>Watchtower</English>
+				<German>Watchtower</German>
+				<Russian>Вышка</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_STAGE_2">
+				<Original>Build Stage %1</Original>
+				<English>Build Stage %1</English>
+				<German>Baue Stufe %1</German>
+				<Russian>Построить этап %1</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_STAGE_U">
+				<Original>Demolish foundation</Original>
+				<English>Demolish foundation</English>
+				<German>Zerstöre Fundament</German>
+				<Russian>Разрушить фундамент</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_STAGE_4">
+				<Original>Build Stage 4</Original>
+				<English>Build Stage 4</English>
+				<German>Baue Stufe 4</German>
+				<Russian>Построить этап 4</Russian>
+			</Key>
+			<Key ID="STR_BUILDING_GARAGE">
+				<Original>Build Garage Extention</Original>
+				<English>Build Garage Extention</English>
+				<German>Baue Garagenanbau</German>
+				<Russian>Построить расширения (гараж)</Russian>
+			</Key>
+			<Key ID="STR_CLOSE_GATE">
+				<Original>Close gate</Original>
+				<English>Close gate</English>
+				<German>Tor schließen</German>
+				<Russian>Закрыть вотора</Russian>
+			</Key>
+			<Key ID="STR_CLOSE_GAR_GATE">
+				<Original>Close garage gate</Original>
+				<English>Close garage gate</English>
+				<German>Garagentor schließen</German>
+				<Russian>Закрыть вотора гаража</Russian>
+			</Key>
+    </package>
+</Project>

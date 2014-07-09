@@ -459,13 +459,13 @@ while {true} do {
 	
 	_lastPos = getPosATL player;	
 	if (player == vehicle player) then {
-		if (_mylastPos distance _lastPos > 200) then {
+		if (_mylastPos distance _lastPos > 20000) then {
 			if (alive player) then {
 				player setPosATL _mylastPos;
 			};
 		};
 	} else {
-		if (_mylastPos distance _lastPos > 800) then {
+		if (_mylastPos distance _lastPos > 80000) then {
 			if (alive player) then {
 				player setPosATL _mylastPos;
 			};
