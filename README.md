@@ -18,7 +18,8 @@ How To Install Origin Server Files:
 - Download these github files.<br>
 - Extract the files into your OA folder.<br>
 - Double-click the install.cmd file to make the @DayZOriginsP folder.<br>
-- Set up your MySQL Server, create the Database "dayz_origins" (utf8 -- UTF-8 Unicode + utf8_general_ci) and execute my SQLfile\DayZ_Origins.sql on it.<br>
+- Set up your MySQL Server, create the Database "dayz_origins" (utf8 -- UTF-8 Unicode + utf8_general_ci).
+-  Execute the .sql files in the SQLfile folder in sequence to install and update your Origins database.<br>
 - Also execute the db sql updates in the same folder.<br>
 - Edit the config.cfg and hive.ini in the folder "dayz_1.origins.tavi".<br>
 - Edit originsserver.cmd and change the path to your MySQL Server (it must be in the hidden path "Program Files")<br>
@@ -32,7 +33,7 @@ How To Install Origin Server Files:
 	- originsserver.cmd<br>
 	- update.cmd<br>
 - Run the update.cmd <br>
-- Run the .sql files in the SQLfile folder in sequence to install and udate your Origins database.<br>
+- Execute any new .sql files in the SQLfile folder required to update your Origins database.<br>
 
 
 Optional Adjustments
