@@ -25,16 +25,14 @@ How To Install Origin Server Files:
 - Double-click the originsserver.cmd to start the server.<br>
 
 <b>How to Update:</b>
-- To update from the last version, simply copy the next folders and files from the pack to your gamedirectory and overwrite the old ones.<br>
-<br>
+-  To update from the last version, simply copy the files/folders listed below into your OA folder and overwrite the old ones.<br>
 	- @dayz_1.origins.tavi<br>
 	- installP<br>
 	- MPMissions	(reinsert youre PlayerID for admintools)<br>
 	- originsserver.cmd<br>
 	- update.cmd<br>
-	<br>
-	- run update.cmd <br>
-	- run update.sql on your origins Database<br>
+- Run the update.cmd <br>
+- Run the .sql files in the SQLfile folder in sequence to install and udate your Origins database.<br>
 
 
 Optional Adjustments
