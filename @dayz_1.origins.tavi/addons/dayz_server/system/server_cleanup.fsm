@@ -1,0 +1,704 @@
+/*%FSM<COMPILE "D:\Spiele\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Server Cleanup">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,-75.000000,-400.000000,25.000000,-350.000000,0.000000,"init"};
+item1[] = {"true",8,218,-75.000000,-175.000000,25.000000,-125.000000,0.000000,"true"};
+item2[] = {"waiting",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"waiting"};
+item3[] = {"too_many_dead",4,218,-200.000000,-25.000000,-100.000000,25.000000,2.000000,"too many" \n "dead"};
+item4[] = {"cleanup_dead",2,250,-200.000000,50.000000,-100.000000,100.000000,0.000000,"cleanup" \n "dead"};
+item5[] = {"too_many_objects",4,218,-100.000000,-25.000000,0.000000,25.000000,3.000000,"too many" \n "objects"};
+item6[] = {"cleanup_objects",2,250,-100.000000,50.000000,0.000000,100.000000,0.000000,"cleanup" \n "objects"};
+item7[] = {"time_sync",4,218,-300.000000,-25.000000,-200.000000,25.000000,3.000000,"time" \n "sync"};
+item8[] = {"sync_the_time",2,250,-300.000000,50.000000,-200.000000,100.000000,0.000000,"sync" \n "the time"};
+item9[] = {"true",8,218,-75.000000,125.000000,25.000000,175.000000,0.000000,"true"};
+item10[] = {"general_cleanup",2,250,-75.000000,200.000000,25.000000,250.000000,0.000000,"general" \n "cleanup"};
+item11[] = {"",7,210,-304.000000,220.999985,-296.000000,229.000015,0.000000,""};
+item12[] = {"",7,210,-304.000000,-154.000000,-296.000000,-146.000000,0.000000,""};
+item13[] = {"",7,210,221.000000,-79.000000,229.000000,-71.000000,0.000000,""};
+item14[] = {"",7,210,221.000000,146.000000,229.000000,154.000000,0.000000,""};
+item15[] = {"initialized",4,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,"initialized"};
+item16[] = {"prepare",2,250,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"prepare"};
+item17[] = {"update_objects",2,250,100.000000,50.000000,200.000000,100.000000,0.000000,"update objects"};
+item18[] = {"need_update",4,4314,100.000000,-25.000000,200.000000,25.000000,1.000000,"need update"};
+item19[] = {"",7,210,221.000000,-79.000000,229.000000,-71.000000,0.000000,""};
+item20[] = {"Make_MO_list",2,250,200.000000,50.000000,300.000000,100.000000,0.000000,"Make MO list"};
+item21[] = {"MO_list",4,218,200.000000,-25.000000,300.000000,25.000000,1.000000,"MO list"};
+link0[] = {0,15};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,5};
+link4[] = {2,7};
+link5[] = {2,13};
+link6[] = {2,18};
+link7[] = {2,21};
+link8[] = {3,4};
+link9[] = {4,9};
+link10[] = {5,6};
+link11[] = {6,9};
+link12[] = {7,8};
+link13[] = {8,9};
+link14[] = {9,10};
+link15[] = {10,11};
+link16[] = {11,12};
+link17[] = {12,1};
+link18[] = {13,14};
+link19[] = {13,19};
+link20[] = {14,9};
+link21[] = {15,16};
+link22[] = {16,1};
+link23[] = {17,9};
+link24[] = {18,17};
+link25[] = {20,9};
+link26[] = {21,20};
+globals[] = {25.000000,1,0,0,0,640,480,1,33,6316128,1,-375.031067,353.029694,516.327637,-254.323822,906,951,1};
+window[] = {0,-1,-1,-1,-1,1121,25,1791,25,1,924};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "DayZ Server Cleanup";
+  class States
+  {
+    /*%FSM<STATE "init">*/
+    class init
+    {
+      name = "init";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "initialized">*/
+        class initialized
+        {
+          priority = 0.000000;
+          to="prepare";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!isnil ""bis_fnc_init"""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "waiting">*/
+    class waiting
+    {
+      name = "waiting";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "too_many_objects">*/
+        class too_many_objects
+        {
+          priority = 3.000000;
+          to="cleanup_objects";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((time - _lastItemCheck) > 65)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_lastItemCheck = time;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "time_sync">*/
+        class time_sync
+        {
+          priority = 3.000000;
+          to="sync_the_time";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((time - _lastTimeSync) > 60)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_lastTimeSync = time;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "too_many_dead">*/
+        class too_many_dead
+        {
+          priority = 2.000000;
+          to="cleanup_dead";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((time - _lastDeadCheck) > 120)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_lastDeadCheck = time;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "MO_list">*/
+        class MO_list
+        {
+          priority = 1.000000;
+          to="Make_MO_list";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((time - _timeMOlist) > 2700)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_timeMOlist = time;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "need_update">*/
+        class need_update
+        {
+          priority = 1.000000;
+          to="update_objects";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"( (time-_lastObjectUpdateCheck) > 10)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_lastObjectUpdateCheck = time;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="general_cleanup";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "cleanup_dead">*/
+    class cleanup_dead
+    {
+      name = "cleanup_dead";
+      init = /*%FSM<STATEINIT""">*/"diag_log (""CLEANUP: PERFORMING BODY CLEANUP ON BODIES, Time="" + str(time));" \n
+       "private[""_delQtyZ"",""_countTotalDelDead"",""_numZombie"",""_myGroupX"",""_modeldex"",""_nameKillerP"",""_typedeP"",""_weapons"",""_magazines"",""_backpack"",""_nameBody"",""_position"",""_position2"",""_position3"",""_backpackWeapons"",""_backpackMagazines"",""_backpackType"",""_isZombie"",""_itemsCount"",""_holder"",""_cruse"",""_cruse2"",""_cruse3"",""_isOkeW"",""_isOke"",""_i"",""_backpackHolder"",""_flys""];" \n
+       "" \n
+       "_delQtyZ = 0;" \n
+       "" \n
+       "_countTotalDelDead = 0;" \n
+       "_numZombie = {_x isKindOf ""zZombie_Base""} count allDead;" \n
+       "{" \n
+       " _modeldex = typeOf _x;" \n
+       "" \n
+       "_nearby2 = (getposATL _x) nearEntities [[""ori_vil_woman_survivor_1"",""ori_vil_woman_survivor_2"",""ori_vil_woman_survivor_3"",""ori_vil_woman_survivor_4"",""ori_vil_woman_survivor_5"",""ori_vil_woman_survivor_6"",""ori_vil_woman_bandit_1"",""ori_vil_woman_bandit_2"",""ori_vil_woman_bandit_3"",""ori_vil_woman_bandit_4"",""ori_vil_woman_bandit_5"",""ori_vil_woman_bandit_6"",""ori_vil_woman_hero_1"",""ori_vil_woman_hero_2"",""ori_vil_woman_hero_3"",""ori_vil_woman_hero_4"",""ori_vil_woman_hero_5"",""ori_vil_woman_hero_6"",""SurvivorW2_DZ"",""Bandit1_DZ"",""Survivor2_DZ"",""Survivor2_1DZ"",""Survivor2_2DZ"",""Survivor2_3DZ"",""Survivor3_DZ"",""Survivor4_DZ"",""Survivor4_1DZ"",""Survivor4_2DZ"",""Survivor4_3DZ"",""Survivor8_DZ"",""Survivor8_1DZ"",""Survivor8_2DZ"",""Survivor8_3DZ"",""Bandit_S_DZ"",""Bandit1_1DZ"",""Bandit1_2DZ"",""Bandit1_3DZ"",""Bandit1_3_1DZ"",""Bandit1_3_2DZ"",""Bandit2_1DZ"",""Bandit2_2DZ"",""Bandit2_3DZ"",""Bandit2_4DZ"",""Bandit2_5DZ"",""Bandit3_1"",""Hero1_1DZ"",""Hero1_2DZ"",""Hero1_3DZ"",""Hero1_4DZ"",""Hero1_5DZ"",""Hero1_6DZ"",""Hero1_7DZ"",""Hero2_1DZ"",""Hero2_2DZ"",""Hero2_3DZ"",""Hero2_4DZ"",""Hero2_5DZ"",""Hero3_1DZ"",""Hero3_2DZ"",""Hero3_3DZ"",""Hero3_4DZ"",""Hero3_5DZ"",""Hero3_6DZ"",""Hero2_10DZ"",""Sniper1_DZ""],200];" \n
+       " _nearby = count _nearby2; " \n
+       "" \n
+       " if (_nearby == 0) then {" \n
+       "" \n
+       " if (_x isKindOf ""zZombie_Base"") then {" \n
+       " " \n
+       " _myGroupX = group _x;" \n
+       " _x removeAllMPEventHandlers ""mpkilled"";" \n
+       " _x removeAllMPEventHandlers ""mphit"";" \n
+       " _x removeAllMPEventHandlers ""mprespawn"";" \n
+       " " \n
+       " _x removeAllEventHandlers ""FiredNear"";" \n
+       " _x removeAllEventHandlers ""HandleDamage"";" \n
+       " _x removeAllEventHandlers ""Killed"";" \n
+       " _x removeAllEventHandlers ""Fired"";" \n
+       " _x removeAllEventHandlers ""GetOut"";" \n
+       " _x removeAllEventHandlers ""Local"";" \n
+       " " \n
+       " clearVehicleInit _x; //let's clear all PICs" \n
+       " deleteVehicle _x;" \n
+       " deleteGroup _myGroupX;" \n
+       " _x = nil; //this seems clean even more :) thx Tansien" \n
+       " //deleteVehicle _x;" \n
+       " _delQtyZ = _delQtyZ + 1;" \n
+       " };" \n
+       " " \n
+       " if (_modeldex ==""Survivor1_DZ"") then { " \n
+       " _myGroupX = group _x;" \n
+       " _x removeAllMPEventHandlers ""mpkilled"";" \n
+       " _x removeAllMPEventHandlers ""mphit"";" \n
+       " _x removeAllMPEventHandlers ""mprespawn"";" \n
+       " " \n
+       " _x removeAllEventHandlers ""FiredNear"";" \n
+       " _x removeAllEventHandlers ""HandleDamage"";" \n
+       " _x removeAllEventHandlers ""Killed"";" \n
+       " _x removeAllEventHandlers ""Fired"";" \n
+       " _x removeAllEventHandlers ""GetOut"";" \n
+       " _x removeAllEventHandlers ""Local"";" \n
+       " " \n
+       " clearVehicleInit _x; //let's clear all PICs" \n
+       " deleteVehicle _x;" \n
+       " deleteGroup _myGroupX;" \n
+       " _x = nil; //this seems clean even more :) thx Tansien " \n
+       " };" \n
+       " " \n
+       " " \n
+       "} forEach allDead;" \n
+       "diag_log format [""Zombie deleted = %1, allDead Total=%2"", _delQtyZ, (count allDead)];" \n
+       "" \n
+       "};" \n
+       "" \n
+       "_modeldex = """";" \n
+       "_nameKillerP = ""unknown"";" \n
+       "_typedeP = 0;" \n
+       "{" \n
+       "_modeldex = typeOf _x;" \n
+       "//diag_log(""_modeldex = ""+str(_modeldex));" \n
+       "" \n
+       "if (_modeldex in [""ori_vil_woman_survivor_1"",""ori_vil_woman_survivor_2"",""ori_vil_woman_survivor_3"",""ori_vil_woman_survivor_4"",""ori_vil_woman_survivor_5"",""ori_vil_woman_survivor_6"",""ori_vil_woman_bandit_1"",""ori_vil_woman_bandit_2"",""ori_vil_woman_bandit_3"",""ori_vil_woman_bandit_4"",""ori_vil_woman_bandit_5"",""ori_vil_woman_bandit_6"",""ori_vil_woman_hero_1"",""ori_vil_woman_hero_2"",""ori_vil_woman_hero_3"",""ori_vil_woman_hero_4"",""ori_vil_woman_hero_5"",""ori_vil_woman_hero_6"",""SurvivorW2_DZ"",""Bandit1_DZ"",""Survivor2_DZ"",""Survivor2_1DZ"",""Survivor2_2DZ"",""Survivor2_3DZ"",""Survivor3_DZ"",""Survivor4_DZ"",""Survivor4_1DZ"",""Survivor4_2DZ"",""Survivor4_3DZ"",""Survivor8_DZ"",""Survivor8_1DZ"",""Survivor8_2DZ"",""Survivor8_3DZ"",""Bandit_S_DZ"",""Bandit1_1DZ"",""Bandit1_2DZ"",""Bandit1_3DZ"",""Bandit1_3_1DZ"",""Bandit1_3_2DZ"",""Bandit2_1DZ"",""Bandit2_2DZ"",""Bandit2_3DZ"",""Bandit2_4DZ"",""Bandit2_5DZ"",""Bandit3_1"",""Hero1_1DZ"",""Hero1_2DZ"",""Hero1_3DZ"",""Hero1_4DZ"",""Hero1_5DZ"",""Hero1_6DZ"",""Hero1_7DZ"",""Hero2_1DZ"",""Hero2_2DZ"",""Hero2_3DZ"",""Hero2_4DZ"",""Hero2_5DZ"",""Hero3_1DZ"",""Hero3_2DZ"",""Hero3_3DZ"",""Hero3_4DZ"",""Hero3_5DZ"",""Hero3_6DZ"",""Hero2_10DZ"",""Sniper1_DZ"",""SectorB_def"",""SectorZ_def""]) then " \n
+       " {" \n
+       " private [""_weapons"", ""_magazines"", ""_backpack"", ""_backpackWeapons"", ""_backpackMagazines"", ""_backpackType"", ""_position"", ""_holder"", ""_i"", ""_itemsCount"", ""_isZombie""];" \n
+       "" \n
+       " _weapons = weapons _x;" \n
+       " _magazines = magazines _x;" \n
+       " _backpack = unitBackpack _x;" \n
+       " _nameBody = _x getVariable[""bodyName"",""unknown""];" \n
+       " _position = (_x modelToWorld [0.0, 0.0, 0.0]); " \n
+       " //_position2 = getPosATL _x;" \n
+       " //_position3 = getPos _x;" \n
+       " _nameKillerP = _x getVariable [""nameKillerP"",""unknown""];" \n
+       " _typedeP = _x getVariable [""typedeP"",""unknown""];" \n
+       "" \n
+       " if (!isNull _backpack) then" \n
+       " {" \n
+       " _backpackWeapons = getWeaponCargo _backpack;" \n
+       " _backpackMagazines = getMagazineCargo _backpack;" \n
+       " _backpackType = typeOf _backpack;" \n
+       " }" \n
+       " else" \n
+       " {" \n
+       " _backpackWeapons = [[], []];" \n
+       " _backpackMagazines = [[], []];" \n
+       " _backpackType = """";" \n
+       " };" \n
+       "" \n
+       " _isZombie = _x isKindOf ""zZombie_Base"";" \n
+       "" \n
+       " deleteVehicle _x;" \n
+       " " \n
+       " _itemsCount = (count _weapons) + (count _magazines) + (count (_backpackWeapons select 0)) + (count (_backpackMagazines select 0));" \n
+       "" \n
+       " if ((_itemsCount > 0) and (!_isZombie)) then" \n
+       " {" \n
+       " _holder = createVehicle [""WeaponHolder"", _position, [], 0, ""CAN_COLLIDE""];" \n
+       " _holder setPos _position;" \n
+       "// createVehicle _position;" \n
+       " _holder setVariable [""RepLoot"", (time+2700), true];" \n
+       " _cruse = createVehicle [""GraveCrossHelmet_DZ"", _position, [], 0, ""CAN_COLLIDE""];" \n
+       " _cruse setPos _position;" \n
+       " //_cruse2 = createVehicle [""GraveCrossHelmet_DZ"", _position2, [], 0, ""CAN_COLLIDE""]; " \n
+       " // _cruse3 = createVehicle [""GraveCrossHelmet_DZ"", _position3, [], 0, ""CAN_COLLIDE""];" \n
+       " " \n
+       "//createVehicle _position;" \n
+       " " \n
+       "" \n
+       " _cruse setVariable [""RepBody"", _nameBody, true];" \n
+       " _cruse setVariable [""nameKillerP"",_nameKillerP, true];" \n
+       " _cruse setVariable [""typedeP"", _typedeP, true];" \n
+       " " \n
+       " { " \n
+       " _isOkeW = true;" \n
+       " if (_x == ""M107_DZ"") then { _isOkeW=false; };" \n
+       " if (_x == ""M107"") then { _isOkeW=false; };" \n
+       " if (_x == ""BAF_AS50_scoped"") then { _isOkeW=false; };" \n
+       " if (_isOkeW) then {" \n
+       " _holder addWeaponCargoGlobal [_x, 1];" \n
+       " };" \n
+       " } forEach _weapons;" \n
+       " { " \n
+       " _isOke = true;" \n
+       " if (_x == ""5Rnd_127x99_as50"") then { _isOke = false; };" \n
+       " if (_x == ""10Rnd_127x99_m107"") then { _isOke = false; };" \n
+       " if (_isOke) then {" \n
+       " _holder addMagazineCargoGlobal [_x, 1]; " \n
+       " };" \n
+       " } forEach _magazines;" \n
+       "" \n
+       "" \n
+       " for ""_i"" from 0 to ((count (_backpackWeapons select 0)) - 1) do" \n
+       " {" \n
+       " _holder addWeaponCargoGlobal" \n
+       " [((_backpackWeapons select 0) select _i), ((_backpackWeapons select 1) select _i)];" \n
+       " };" \n
+       "" \n
+       " for ""_i"" from 0 to ((count (_backpackMagazines select 0)) - 1) do" \n
+       " {" \n
+       " _holder addMagazineCargoGlobal" \n
+       " [((_backpackMagazines select 0) select _i), ((_backpackMagazines select 1) select _i)];" \n
+       " };" \n
+       " };" \n
+       "" \n
+       " if ((_backpackType != """") and (!_isZombie)) then" \n
+       " {" \n
+       " //_backpackHolder = ""WeaponHolder"" createVehicle _position;" \n
+       " _backpackHolder = createVehicle [_backpackType, _position, [], 0, ""CAN_COLLIDE""];" \n
+       " _backpackHolder setVariable [""RepLoot"", (time+2700), true];" \n
+       " _backpackHolder setPos _position;" \n
+       " //_holder addBackpackCargoGlobal [_backpackType, 1];" \n
+       " //_backpackHolder addBackpackCargoGlobal [_backpackType, 1];" \n
+       " };" \n
+       " //_flys = count ( allMissionObjects ""#dynamicsound"");" \n
+       " _countTotalDelDead = _countTotalDelDead+1;" \n
+       " diag_log format [""Replaced Body (%4)-(%1 items, at %2), _backpackType=%3"", _itemsCount, _position, _backpackType,_nameBody];" \n
+       " };" \n
+       "} forEach allDead;" \n
+       "diag_log format [""Total Replaced %1 Bodys"", _countTotalDelDead];" \n
+       "" \n
+       "" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="general_cleanup";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "cleanup_objects">*/
+    class cleanup_objects
+    {
+      name = "cleanup_objects";
+      init = /*%FSM<STATEINIT""">*/"_missionObjsW = allMissionObjects ""WeaponHolder"" + allMissionObjects ""#dynamicsound"" + allMissionObjects ""WeaponHolder_ItemRestTent"" + allMissionObjects ""WeaponHolder_ItemTent"" + allMissionObjects ""WeaponHolder_ItemHatchet"" + allMissionObjects ""WeaponHolder_PartGeneric"" + allMissionObjects ""WeaponHolder_ItemJerrycanB"" + allMissionObjects ""WeaponHolder_ItemJerrycan"" + allMissionObjects ""WeaponHolder_PartEngine"" + allMissionObjects ""WeaponHolder_PartFueltank"" + allMissionObjects ""WeaponHolder_PartGlass"" + allMissionObjects ""WeaponHolder_PartWheel"" + allMissionObjects ""WeaponHolder_PartVRotor"" + allMissionObjects ""DZ_Patrol_Pack_EP1"" + allMissionObjects ""DZ_CivilBackpack_EP1"" + allMissionObjects ""DZ_Assault_Pack_EP1"" + allMissionObjects ""CZ_VestPouch_EP1"" + allMissionObjects ""DZ_ALICE_Pack_EP1"" + allMissionObjects ""DZ_Backpack_EP1"" + allMissionObjects ""WeaponHolder_PartScrap"" + allMissionObjects ""WeaponHolder_ItemPickaxe"" + allMissionObjects ""WeaponHolder_ItemCeMix"" + allMissionObjects ""O_MegaPack_1"" + allMissionObjects ""O_TravelerPack_1"";" \n
+       "_qty = count _missionObjsW;" \n
+       "diag_log (""CLEANUP: PERFORMING ITEM CLEANUP: TOTAL "" + str(_qty) + "" LOOT BAGS TIME="" + str(time));" \n
+       "_delQty = 0;" \n
+       "_keepme = false;" \n
+       "_keepmetoo = 0;" \n
+       "_itemNumer =0;" \n
+       "_itemNumerP =0;" \n
+       "_itemNumerHP =0;" \n
+       "_nearby = 0;" \n
+       " " \n
+       "{" \n
+       " _keep = _x getVariable [""permaLoot"",false];" \n
+       " _keept = _x getVariable [""RepLoot"",0];" \n
+       " if (_keept!=0) then {" \n
+       " //diag_log (""RepLoot="" + str(_keept));" \n
+       " _keepmetoo = (_keept - time);" \n
+       " if (_keepmetoo>0) then {" \n
+       " _keepme = true;" \n
+       " //diag_log (""_keepme = true"");" \n
+       " } else {" \n
+       " _keepme = false;" \n
+       " //diag_log (""_keepme = false"");" \n
+       " };" \n
+       " };" \n
+       " //_nearby = {isPlayer _x} count (_x nearEntities [[""BanditW1_DZ"",""SurvivorW2_DZ"",""Bandit1_DZ"",""Survivor2_DZ"",""Survivor2_1DZ"",""Survivor2_2DZ"",""Survivor2_3DZ"",""Survivor3_DZ"",""Survivor4_DZ"",""Survivor4_1DZ"",""Survivor4_2DZ"",""Survivor4_3DZ"",""Survivor8_DZ"",""Survivor8_1DZ"",""Survivor8_2DZ"",""Survivor8_3DZ"",""Bandit_S_DZ"",""Bandit1_1DZ"",""Bandit1_2DZ"",""Bandit1_3DZ"",""Bandit1_3_1DZ"",""Bandit1_3_2DZ"",""Bandit2_1DZ"",""Bandit2_2DZ"",""Bandit2_3DZ"",""Bandit2_4DZ"",""Bandit2_5DZ"",""Bandit3_1"",""Hero1_1DZ"",""Hero1_2DZ"",""Hero1_3DZ"",""Hero1_4DZ"",""Hero1_5DZ"",""Hero1_6DZ"",""Hero1_7DZ"",""Hero2_1DZ"",""Hero2_2DZ"",""Hero2_3DZ"",""Hero2_4DZ"",""Hero2_5DZ"",""Hero3_1DZ"",""Hero3_2DZ"",""Hero3_3DZ"",""Hero3_4DZ"",""Hero3_5DZ"",""Hero3_6DZ"",""Hero2_10DZ"",""Sniper1_DZ""], 300]);" \n
+       " _nearby2 = (getposATL _x) nearEntities [[""ori_vil_woman_survivor_1"",""ori_vil_woman_survivor_2"",""ori_vil_woman_survivor_3"",""ori_vil_woman_survivor_4"",""ori_vil_woman_survivor_5"",""ori_vil_woman_survivor_6"",""ori_vil_woman_bandit_1"",""ori_vil_woman_bandit_2"",""ori_vil_woman_bandit_3"",""ori_vil_woman_bandit_4"",""ori_vil_woman_bandit_5"",""ori_vil_woman_bandit_6"",""ori_vil_woman_hero_1"",""ori_vil_woman_hero_2"",""ori_vil_woman_hero_3"",""ori_vil_woman_hero_4"",""ori_vil_woman_hero_5"",""ori_vil_woman_hero_6"",""SurvivorW2_DZ"",""Bandit1_DZ"",""Survivor2_DZ"",""Survivor2_1DZ"",""Survivor2_2DZ"",""Survivor2_3DZ"",""Survivor3_DZ"",""Survivor4_DZ"",""Survivor4_1DZ"",""Survivor4_2DZ"",""Survivor4_3DZ"",""Survivor8_DZ"",""Survivor8_1DZ"",""Survivor8_2DZ"",""Survivor8_3DZ"",""Bandit_S_DZ"",""Bandit1_1DZ"",""Bandit1_2DZ"",""Bandit1_3DZ"",""Bandit1_3_1DZ"",""Bandit1_3_2DZ"",""Bandit2_1DZ"",""Bandit2_2DZ"",""Bandit2_3DZ"",""Bandit2_4DZ"",""Bandit2_5DZ"",""Bandit3_1"",""Hero1_1DZ"",""Hero1_2DZ"",""Hero1_3DZ"",""Hero1_4DZ"",""Hero1_5DZ"",""Hero1_6DZ"",""Hero1_7DZ"",""Hero2_1DZ"",""Hero2_2DZ"",""Hero2_3DZ"",""Hero2_4DZ"",""Hero2_5DZ"",""Hero3_1DZ"",""Hero3_2DZ"",""Hero3_3DZ"",""Hero3_4DZ"",""Hero3_5DZ"",""Hero3_6DZ"",""Hero2_10DZ"",""Sniper1_DZ""],200];" \n
+       " _nearby = count _nearby2; " \n
+       " //diag_log format [""%3. _nearby =%1, typeOf=%2"", _nearby,(typeOf _x),_itemNumer];" \n
+       " if ( (!_keep) && (_nearby == 0) && (!_keepme) ) then {" \n
+       " " \n
+       " clearVehicleInit _x; //let's clear all PICs" \n
+       " deleteVehicle _x;" \n
+       " _x = nil; //this seems clean even more :) thx Tansien" \n
+       " //deleteVehicle _x;" \n
+       " _delQty = _delQty + 1;" \n
+       " };" \n
+       " if (_nearby != 0) then {" \n
+       " _itemNumer =_itemNumer + 1;" \n
+       " };" \n
+       " if (_keepme) then {" \n
+       " _itemNumerP =_itemNumerP + 1;" \n
+       " };" \n
+       " if (_keep) then {" \n
+       " _itemNumerHP =_itemNumerHP + 1;" \n
+       " };" \n
+       "} forEach _missionObjsW;" \n
+       "diag_log format [""CLEANUP: _itemNumer = %1, _itemNumerP=%2, _itemNumerHP=%3"",_itemNumer,_itemNumerP,_itemNumerHP];" \n
+       "if (_delQty > 0) then {" \n
+       " diag_log (""CLEANUP: DELETED "" + str(_delQty) + "" LOOT BAGS, TOTAL "" + str(_qty) + "", TIME end="" + str(time));" \n
+       "};" \n
+       " " \n
+       "_delQtyAnimal = 0;" \n
+       "_animaltype = [];" \n
+       "_delQtyAnimalR = 0;" \n
+       "{" \n
+       " _xtypeanimal = typeof _x;" \n
+       " //diag_log format [""x= %1, typeOf=%2"",_x,(typeOf _x)];" \n
+       " if(_xtypeanimal==""Rabbit"") then {" \n
+       " _myGroupX = group _x;" \n
+       " _x removeAllMPEventHandlers ""mpkilled"";" \n
+       " _x removeAllMPEventHandlers ""mphit"";" \n
+       " _x removeAllMPEventHandlers ""mprespawn"";" \n
+       " " \n
+       " _x removeAllEventHandlers ""FiredNear"";" \n
+       " _x removeAllEventHandlers ""HandleDamage"";" \n
+       " _x removeAllEventHandlers ""Killed"";" \n
+       " _x removeAllEventHandlers ""Fired"";" \n
+       " _x removeAllEventHandlers ""GetOut"";" \n
+       " _x removeAllEventHandlers ""Local"";" \n
+       " " \n
+       " clearVehicleInit _x; //let's clear all PICs" \n
+       " deleteVehicle _x;" \n
+       " deleteGroup _myGroupX;" \n
+       " _x = nil; //this seems clean even more :) thx Tansien" \n
+       " //deleteVehicle _x;" \n
+       " _delQtyAnimalR = _delQtyAnimalR+1;" \n
+       " } else {" \n
+       " _nearby = {isPlayer _x} count (_x nearEntities [[""BanditW1_DZ"",""SurvivorW2_DZ"",""Bandit1_DZ"",""Survivor2_DZ"",""Survivor2_1DZ"",""Survivor2_2DZ"",""Survivor2_3DZ"",""Survivor3_DZ"",""Survivor4_DZ"",""Survivor4_1DZ"",""Survivor4_2DZ"",""Survivor4_3DZ"",""Survivor8_DZ"",""Survivor8_1DZ"",""Survivor8_2DZ"",""Survivor8_3DZ"",""Bandit_S_DZ"",""Bandit1_1DZ"",""Bandit1_2DZ"",""Bandit1_3DZ"",""Bandit1_3_1DZ"",""Bandit1_3_2DZ"",""Bandit2_1DZ"",""Bandit2_2DZ"",""Bandit2_3DZ"",""Bandit2_4DZ"",""Bandit2_5DZ"",""Bandit3_1"",""Hero1_1DZ"",""Hero1_2DZ"",""Hero1_3DZ"",""Hero1_4DZ"",""Hero1_5DZ"",""Hero1_6DZ"",""Hero1_7DZ"",""Hero2_1DZ"",""Hero2_2DZ"",""Hero2_3DZ"",""Hero2_4DZ"",""Hero2_5DZ"",""Hero3_1DZ"",""Hero3_2DZ"",""Hero3_3DZ"",""Hero3_4DZ"",""Hero3_5DZ"",""Hero3_6DZ"",""Hero2_10DZ"",""Sniper1_DZ""], 100]);" \n
+       " " \n
+       " if (!(_xtypeanimal in _animaltype)) then { _animaltype set [(count _animaltype),(typeOf _x)]; };" \n
+       " if (_nearby==0) then {" \n
+       " _myGroupX = group _x;" \n
+       " _x removeAllMPEventHandlers ""mpkilled"";" \n
+       " _x removeAllMPEventHandlers ""mphit"";" \n
+       " _x removeAllMPEventHandlers ""mprespawn"";" \n
+       " " \n
+       " _x removeAllEventHandlers ""FiredNear"";" \n
+       " _x removeAllEventHandlers ""HandleDamage"";" \n
+       " _x removeAllEventHandlers ""Killed"";" \n
+       " _x removeAllEventHandlers ""Fired"";" \n
+       " _x removeAllEventHandlers ""GetOut"";" \n
+       " _x removeAllEventHandlers ""Local"";" \n
+       " " \n
+       " clearVehicleInit _x; //let's clear all PICs" \n
+       " deleteVehicle _x;" \n
+       " deleteGroup _myGroupX;" \n
+       " _x = nil; //this seems clean even more :) thx Tansien" \n
+       " //deleteVehicle _x;" \n
+       " _delQtyAnimal = _delQtyAnimal + 1;" \n
+       " };" \n
+       " };" \n
+       "} forEach allMissionObjects ""Animal"";" \n
+       " " \n
+       "diag_log format [""Animals deleted = %1(Rabbits %3), Animals alive=%2"", _delQtyAnimal, (count allMissionObjects ""Animal""),_delQtyAnimalR];" \n
+       "diag_log format [""At=%1"",_animaltype];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="general_cleanup";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "sync_the_time">*/
+    class sync_the_time
+    {
+      name = "sync_the_time";
+      init = /*%FSM<STATEINIT""">*/"//Send request" \n
+       "_key = ""CHILD:307:"";" \n
+       "_result = [_key] call server_hiveReadWrite;" \n
+       "_outcome = _result select 0;" \n
+       "if(_outcome == ""PASS"") then {" \n
+       " /*" \n
+       " _date = _result select 1; " \n
+       " _dateNum = dateToNumber(_date); " \n
+       " _diff = ( _dateNum - dateToNumber (date) )*365*24*60;" \n
+       " if ( abs(_diff)>5 ) then {" \n
+       " setDate _date;" \n
+       " dayzSetDate = _date;" \n
+       " publicVariable ""dayzSetDate"";" \n
+       " diag_log (""TIME SYNC: Local Time set to "" + str(_date));" \n
+       " };" \n
+       " */" \n
+       " _date = _result select 1; " \n
+       " _year = _date select 0;" \n
+       " " \n
+       " //_month = _date select 1;" \n
+       " // _day = _date select 2;" \n
+       " // _hour = 12;" \n
+       " //_minute = 0;" \n
+       " " \n
+       " // gamedatas = [_year,_month,_day,_hour,_minute];" \n
+       " " \n
+       " _diff = ( dateToNumber (_date) - dateToNumber (gamedatas) )*365*24*60;" \n
+       "" \n
+       " diag_log format [""%1, %2, %3"",_date,gamedatas,_diff];" \n
+       "" \n
+       " _dateNumP = (dateToNumber (gamedatas)) + ((6*_diff)/(365*24*60));" \n
+       " _date = NumberToDate[_year,_dateNumP];" \n
+       " setDate _date;" \n
+       " dayzSetDate = _date;" \n
+       " publicVariable ""dayzSetDate"";" \n
+       " diag_log (""TIME SYNC: fsm Local Time set to "" + str(_date));"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="general_cleanup";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "general_cleanup">*/
+    class general_cleanup
+    {
+      name = "general_cleanup";
+      init = /*%FSM<STATEINIT""">*/"//Clean groups" \n
+       "{" \n
+       " //diag_log (""CLEANUP: CHECKING GROUP WITH "" + str(count units _x) + "" UNITS"");" \n
+       " if (count units _x==0) then {" \n
+       " deleteGroup _x;" \n
+       " //diag_log (""CLEANUP: DELETING A GROUP"");" \n
+       " };" \n
+       "} forEach allGroups;" \n
+       "" \n
+       "/*" \n
+       "//Check for Ammobox" \n
+       " {" \n
+       " if(!(_x isKindOf ""WeaponHolder"")) then {" \n
+       " diag_log (""CLEANUP: DELETING AN AMMOBOX "" + (typeOf _x));" \n
+       " deleteVehicle _x;" \n
+       " };" \n
+       " } forEach allMissionObjects ""ReammoBox"";" \n
+       "*/" \n
+       "" \n
+       "ori_servObjMonitor = _safety;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="waiting";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "prepare">*/
+    class prepare
+    {
+      name = "prepare";
+      init = /*%FSM<STATEINIT""">*/"diag_log (""CLEANUP: INITIALIZING CLEANUP SCRIPT"");" \n
+       "" \n
+       "_safety = ori_servObjMonitor;" \n
+       "" \n
+       "_lastTimeSync = time;" \n
+       "_lastDeadCheck = time;" \n
+       "_lastItemCheck = time;" \n
+       "_lastObjectUpdateCheck = time;" \n
+       "_timeMOlist = time;" \n
+       "_deadBodies = [];" \n
+       "_maxBodies = 15;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="waiting";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "update_objects">*/
+    class update_objects
+    {
+      name = "update_objects";
+      init = /*%FSM<STATEINIT""">*/"if ((count needUpdate_objects) > 0) then {" \n
+       "" \n
+       " diag_log format[""DEBUG: needUpdate_objects=%1"",needUpdate_objects];" \n
+       "" \n
+       " {" \n
+       " diag_log format[""DEBUG:_x=%1, type=%2"",_x,(typeOf _x)];" \n
+       " //_x setVariable [""needUpdate"",false,true];" \n
+       " needUpdate_objects = needUpdate_objects - [_x];" \n
+       " [_x,""all""] call server_updatObiect; //should be call!!!" \n
+       " } forEach needUpdate_objects;" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="general_cleanup";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Make_MO_list">*/
+    class Make_MO_list
+    {
+      name = "Make_MO_list";
+      init = /*%FSM<STATEINIT""">*/"diag_log (""MOList Start: ""+str(count allMissionObjects """")+"", Start Time="" + str(time));" \n
+       "_MOList = allMissionObjects """";" \n
+       "_MOListP = [];" \n
+       "_countMOL = 0;" \n
+       "_countMOLP = 0;" \n
+       "_countxt = 0;" \n
+       "_countxp = 0;" \n
+       "_temparx = [];" \n
+       "_counttemp = 0;" \n
+       "_xr = 0;" \n
+       "_xt = 0;" \n
+       "_keepto = false;" \n
+       "_keepto1 = 0;" \n
+       "{" \n
+       " _MOListP set [(count _MOListP),(typeOf _x)];" \n
+       "} forEach _MOList;" \n
+       "{" \n
+       " _countMOL = _countMOL+1;" \n
+       " //_countxt = {_xr==_x} count _MOList;" \n
+       " " \n
+       " _xt = typeOf _x;" \n
+       "" \n
+       " if (_xt !=""Baseball_DZ"") then {" \n
+       " //diag_log format[""MOList:WeaponHolder Object: %1, TypeOf: %2, W:%3, Name:%4"",_x,(typeOf _x),(_x modelToWorld [0.0, 0.0, 0.0]),(name _x)];" \n
+       "//diag_log format[""MOList:WeaponHolder Object: %1, TypeOf: %2, W:%3"",_x,(typeOf _x),(_x modelToWorld [0.0, 0.0, 0.0])];" \n
+       " " \n
+       " _keepto1 = _x getVariable [""RepLoot"",0]; " \n
+       " if (_keepto1!=0) then {" \n
+       " //diag_log (""_keepto1="" + str(_keepto1)); " \n
+       " // //diag_log format[""MOList:WeaponHolder Object: %1, TypeOf: %2, W:%3"",_x,(typeOf _x),(_x modelToWorld [0.0, 0.0, 0.0])];" \n
+       " };" \n
+       " };" \n
+       "" \n
+       " if (!(_xt in _temparx)) then {" \n
+       " //diag_log (""_countxp = "" + _countxp + "" typeOf: "" + str(typeOf _x));" \n
+       " _countMOLP = _countMOLP +1;" \n
+       " _counttemp = count _temparx;" \n
+       " //diag_log (""_counttemp = "" + str(_counttemp));" \n
+       " if (_counttemp == 0) then " \n
+       " {" \n
+       " _temparx set [0,(typeOf _x)];" \n
+       " } else {" \n
+       " _temparx set [_counttemp,(typeOf _x)];" \n
+       " };" \n
+       " _xr = typeOf _x;" \n
+       " _countxt = {_x == _xr} count _MOListP;" \n
+       " diag_log format[""MOList: %1. N: %2, Object: %3, TypeOf: %4, W:%5"",_countMOLP,_countxt,_x,(typeOf _x),(_x modelToWorld [0.0, 0.0, 0.0])];" \n
+       " };" \n
+       " //diag_log format [""_MOListP = %1"",(_MOListP select ((count _MOListP)-1))];" \n
+       "} forEach _MOList;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="general_cleanup";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="init";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/
